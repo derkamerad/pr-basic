@@ -1,6 +1,26 @@
 <?php
 //
-
+$config = [
+	'id' => 'app',
+	'defaultRoute' => 'main/default/index',
+	'components' => [
+		'user' => [
+			'identityClass' => 'app\modules\user\models\User',
+			'enableAutoLogin' => true,
+			'loginUrl' => ['user/login'],
+			],
+		'errorHandler' => [
+			'errorAction' => 'main/default/error',
+		],
+		'request' => [
+			'cookieValidationKey' => '',
+		],
+		'log' => [
+			'traceLevel' => YII_DEBUG ? 3 : 0,
+		],
+	],
+];
+/*
 $config = [
 	'id' => 'app',
 	'components' => [
@@ -18,7 +38,7 @@ $config = [
 			'traceLevel' => YII_DEBUG ? 3 : 0,
 		],
 	],
-];
+];*/
 
 if (YII_ENV_DEV) {
 	// configuration adjustments for 'dev' environment
